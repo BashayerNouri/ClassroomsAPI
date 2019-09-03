@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-
 from .models import Classroom
 from .forms import ClassroomForm
+
 
 def classroom_list(request):
 	classrooms = Classroom.objects.all()
@@ -56,3 +56,5 @@ def classroom_delete(request, classroom_id):
 	Classroom.objects.get(id=classroom_id).delete()
 	messages.success(request, "Successfully Deleted!")
 	return redirect('classroom-list')
+
+
